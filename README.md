@@ -17,4 +17,17 @@ to  your application/libraries/ folderer
 
 In config/digitalapi.php file update your DigitalAPI key
 
-$config['api_key'] ='XXXXXXX PUT YOUR API KEY HERE XXXXXXXXX';
+$config['api_key'] ='XXXXXXX PUT YOUR API KEY HERE XXXXXXXXX'; 
+and you're good to go!
+
+## A Brief Introduction
+With the digitalapi codeigniter library, we've simplified interaction with the DigitalAPI REST API.
+No need to manually create CURL requests in your application, you can include the library in your 
+aplication any you are ready to make API calls to Digital API.
+
+## Quickstart
+
+### Send an SMS
+```php
+
+```
