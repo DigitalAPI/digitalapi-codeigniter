@@ -261,16 +261,15 @@ Please refer the document for all possible response and inputs.
 ```php
 <?php
     /**
-    * There will be 4 types of report format
-    * 1- Get the API Usage //Docs: https://www.digitalapi.com/api/v1/docs#report-usage
-    * 2- Get the status of SMS(s) sent //Docs: https://www.digitalapi.com/api/v1/docs#report-sms
-    * 3- Get the status of Voice Call(s) //Docs: https://www.digitalapi.com/api/v1/docs#report-call
-    * 4- Get the status of Email(s) //Docs: https://www.digitalapi.com/api/v1/docs#report-email
+    * There will be 3 types of report format    
+    * 1- Get the status of SMS(s) sent //Docs: https://www.digitalapi.com/api/v1/docs#report-sms
+    * 2- Get the status of Voice Call(s) //Docs: https://www.digitalapi.com/api/v1/docs#report-call
+    * 3- Get the status of Email(s) //Docs: https://www.digitalapi.com/api/v1/docs#report-email
     * For multiple status search, Digital API provides a single call environment
     * You can query up to 100 message id's at a time
     */
     
-    $reportType='usage'; // usage / sms / call / email
+    $reportType='sms'; // sms / call / email
     
     //Single Message search
     $messageId='{"message_id":"b624092b8dce4c17a031cffe9855e7c2"}';
@@ -285,7 +284,6 @@ Please refer the document for all possible response and inputs.
     $this->load->library('digitalapi');
     
     //Make the API call
-    //Incase of usage search leave $messageId
     $response=$this->digitalapi->getReport($reportType,$messageId);
     
 ?>
