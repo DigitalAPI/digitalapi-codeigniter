@@ -29,17 +29,17 @@ aplication and you are ready to make API calls to Digital API.
 
 #### Respose Format
 For all api calls, there is a unified response format while using the library as follows:
-```css
-    /**
-    *$response is an associatuve array
-    *which contains
-    *   $response['post_url']
-    *   $response['post_endpoint']
-    *   $response['post_data']
-    *   $response['api_status'] //API Status Code
-    *   $response['api_message'] //API MEssage // incase of 400 status you can refer it for error details
-    *   $response['api_response'] For API Return please check documentation URL
-    */
+```php
+<?php
+    // $response is an associatuve array which contains
+    $response['post_url']
+    $response['post_endpoint']
+    $response['post_data']
+    $response['api_status'] //API Status Code
+    $response['api_message'] //API MEssage // incase of 400 status you can refer it for error details
+    $response['api_response'] For API Return please check documentation URL
+?>
+For more details on response format please do check our hosted document at: https://www.digitalapi.com/api/v1/docs
 ```
 
 
