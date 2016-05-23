@@ -23,7 +23,7 @@ and you're good to go!
 ## A Brief Introduction
 With the digitalapi codeigniter library, we've simplified interaction with the DigitalAPI REST API.
 No need to manually create CURL requests in your application, you can include the library in your 
-aplication any you are ready to make API calls to Digital API.
+aplication and you are ready to make API calls to Digital API.
 
 ## Quickstart
 
