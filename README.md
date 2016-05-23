@@ -37,7 +37,7 @@ For all api calls, there is a unified response format while using the library as
     $response['post_data']
     $response['api_status'] //API Status Code
     $response['api_message'] //API MEssage // incase of 400 status you can refer it for error details
-    $response['api_response'] For API Return please check documentation URL
+    $response['api_response'] //For API Return please check documentation URL
 ?>
 For more details on response format please do check our hosted document at: https://www.digitalapi.com/api/v1/docs
 ```
@@ -106,16 +106,6 @@ Please refer the document for all possible response and inputs.
     //Make the API call
     $response=$this->digitalapi->sendSMS($mailarray);
     
-    /**
-    *$response is an associatuve array
-    *which contains
-    *   $response['post_url']
-    *   $response['post_endpoint']
-    *   $response['post_data']
-    *   $response['api_status'] //API Status Code
-    *   $response['api_message'] //API Message // incase of 400 status you can refer it for error details
-    *   $response['api_response'] For API Return please check documentation URL
-    */
     //Check status
     $status=$response['api_status'];
     if($status==200):
@@ -130,7 +120,7 @@ Please refer the document for all possible response and inputs.
 **Document URL:** 
 The documentation for **digitalapi Call** is hosted
 at : [Click here to read our full
-documentation for sending SMS.](https://www.digitalapi.com/api/v1/docs#voicecall "Digital API 
+documentation for making Voice Calls.](https://www.digitalapi.com/api/v1/docs#voicecall "Digital API 
 Library Documentation For Making Voice Call")
 
 Please refer the document for all possible response and inputs.
@@ -143,15 +133,74 @@ Please refer the document for all possible response and inputs.
                         'message'=>'Your OTP for transaction is 8967',
                         'type'=>'t' // t- Transactional / p- Promotional
                     );
-     //Load digital API Library
+    //Load digital API Library
     $this->load->library('digitalapi');
     
     //Make the API call
-    $response=$this->digitalapi->sendSMS($mailarray);
+    $response=$this->digitalapi->makeCall($mailarray);
+    
+    //Check status
+    $status=$response['api_status'];
+    if($status==200):
+      echo 'Congrats! You made a call using DigitalAPI!'
+    else:
+       echo 'You got a error: '.$response['api_message'];
+    endif; 
+?>
+```
+
+
+### Get the  IP Information
+**Document URL:** 
+The documentation for **digitalapi  IP Information** is hosted
+at : [Click here to read our full
+documentation for getting the IP info.](https://www.digitalapi.com/api/v1/docs#ipinfo "Digital API 
+Library Documentation getting the IP info")
+
+Please refer the document for all possible response and inputs.
+```php
+<?php
+    //Set parameters
+    
+    // Default : partial, which returns only Country,Country_code,City,State
+    //Made two return types to speed up the ip search
+    $returndata='full'; 
+    
+    //IP adress
+    $ip='XXX.XXX.XXX.XXX';
+    
+    //Load digital API Library
+    $this->load->library('digitalapi');
+    
+    //Make the API call
+    $response=$this->digitalapi->getIPInfo($returndata,$ip);
     
 ?>
 ```
 
+### Number Lookup
+**Document URL:** 
+The documentation for **digitalapi  Number Lookup** is hosted
+at : [Click here to read our full
+documentation for Number Lookup.](https://www.digitalapi.com/api/v1/docs#numberlookup "Digital API 
+Library Documentation Number Lookup")
+
+Please refer the document for all possible response and inputs.
+```php
+<?php
+    //Set parameters
+    $number_data=array(
+                'country'=91, //Recipient country dialing code
+                'number'=7845784578, //Phone number
+                'force_fetch'=N //Fetch from provider, even we have performed same request with-in stipulated time (Y,N) - Yes or No
+                );
+    //Load digital API Library
+    $this->load->library('digitalapi');
+    
+    //Make the API call
+    $response=$this->digitalapi->getNumberInfo($number_data);
+?
+```
 
 
 
