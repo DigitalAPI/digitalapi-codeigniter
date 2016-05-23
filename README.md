@@ -13,7 +13,7 @@ codeigniter application  folders.
 to your application/config/ folder
 
 2-Copy the digitalapi-codeigniter/application/libraries/digitalapi.php file
-to  your application/libraries/ folderer
+to  your application/libraries/ folder
 
 In config/digitalapi.php file update your DigitalAPI key
 
@@ -27,16 +27,16 @@ aplication and you are ready to make API calls to Digital API.
 
 ## Quickstart
 
-#### Respose Format
+#### Response Format
 For all api calls, there is a unified response format while using the library as follows:
 ```php
 <?php
-    // $response is an associatuve array which contains
+    // $response is an associative array which contains
     $response['post_url']
     $response['post_endpoint']
     $response['post_data']
     $response['api_status'] //API Status Code
-    $response['api_message'] //API MEssage // incase of 400 status you can refer it for error details
+    $response['api_message'] //API Message // incase of 400 status you can refer it for error details
     $response['api_response'] //For API Return please check documentation URL
 ?>
 For more details on response format please do check our hosted document at: https://www.digitalapi.com/api/v1/docs
@@ -55,11 +55,11 @@ Please refer the document for all possible response and inputs.
 <?php
     //Set up mail data
     $mailarray=array(
-                  'from_mail'=>'example@yourdomain.com',//email should be from your sending domail
+                  'from_mail'=>'example@yourdomain.com',//email should be from your sending domain
                   'from_name'=>'Your Name', //Sender name
-                  'reply_to'=>'example@yourdomain.com', //email should be from your sending domail
+                  'reply_to'=>'example@yourdomain.com', //email should be from your sending domain
                   'to_name'=> 'John Doe',// Keep Empty if not available
-                  'to_mail'=>'johndoe@example.com', // Receicver email address
+                  'to_mail'=>'johndoe@example.com', // Receiver email address
                   'subject'=> 'Firstmail using Digital API', //Mail subject
                   'message'=>'<p>Hello World! My firstmail using DIgital API</p>', //mail body HTML or Plaintext
                   'attachment'=>0,// 1 if  attachment / If 1 below fields are mandatory
