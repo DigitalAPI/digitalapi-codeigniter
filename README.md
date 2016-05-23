@@ -190,9 +190,9 @@ Please refer the document for all possible response and inputs.
 <?php
     //Set parameters
     $number_data=array(
-                'country'=91, //Recipient country dialing code
-                'number'=7845784578, //Phone number
-                'force_fetch'=N //Fetch from provider, even we have performed same request with-in stipulated time (Y,N) - Yes or No
+                'country'=>91, //Recipient country dialing code
+                'number'=>7845784578, //Phone number
+                'force_fetch'=>N //Fetch from provider, even we have performed same request with-in stipulated time (Y,N) - Yes or No
                 );
     //Load digital API Library
     $this->load->library('digitalapi');
@@ -201,6 +201,56 @@ Please refer the document for all possible response and inputs.
     $response=$this->digitalapi->getNumberInfo($number_data);
 ?
 ```
+
+
+### Get Credit Status
+**Document URL:** 
+The documentation for **digitalapi  Get Credit Status** is hosted
+at : [Click here to read our full
+documentation for Credit Status.](https://www.digitalapi.com/api/v1/docs#credit-info "Digital API 
+Library Documentation Credit Status")
+
+Please refer the document for all possible response and inputs.
+```php
+<?php
+    //Load digital API Library
+    $this->load->library('digitalapi');
+    
+    //Make the API call
+    $response=$this->digitalapi->myCreditStatus(); 
+?
+```
+
+### Get Credit Transaction History
+**Document URL:** 
+The documentation for **digitalapi  Credit History** is hosted
+at : [Click here to read our full
+documentation for Credit History.](https://www.digitalapi.com/api/v1/docs#credit-history "Digital API 
+Library Documentation Credit History")
+
+Please refer the document for all possible response and inputs.
+```php
+<?php
+    //Set up data
+    $search_array=array(
+                    'request_type'=>'C',// Request Type(C,D) - Count or Date /if nothing passed default will be C
+                    'count'=>5, //Number of records to be fetched. // Needed when request_type is C.
+                    'start_date'=>'YYYY-MM-DD', // From Date // If type = D
+                    'end_date'=>'YYYY-MM-DD', // To Date // If type = D
+                    );
+
+    //Load digital API Library
+    $this->load->library('digitalapi');
+    
+    //Make the API call
+    $response=$this->digitalapi->myCreditTransactions($search_array); 
+?
+```
+
+
+
+
+
 
 
 
