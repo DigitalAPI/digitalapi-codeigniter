@@ -60,7 +60,7 @@ Document URL: https://www.digitalapi.com/api/v1/docs#email
     *   $response['api_status'] //API Status Code
     *   $response['api_message'] //API MEssage // incase of 400 status you can refer it for error details
     *   $response['api_response'] For API Return please check documentation URL
-    
+    */
     //Check status
     $status=$response['api_status'];
     if($status==200):
