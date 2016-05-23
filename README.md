@@ -192,7 +192,7 @@ Please refer the document for all possible response and inputs.
     $number_data=array(
                 'country'=>91, //Recipient country dialing code
                 'number'=>7845784578, //Phone number
-                'force_fetch'=>N //Fetch from provider, (Y,N) - Yes or No
+                'force_fetch'=>'N' //Fetch from provider, (Y,N) - Yes or No
                 );
     //Load digital API Library
     $this->load->library('digitalapi');
