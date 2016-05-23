@@ -192,7 +192,7 @@ Please refer the document for all possible response and inputs.
     $number_data=array(
                 'country'=>91, //Recipient country dialing code
                 'number'=>7845784578, //Phone number
-                'force_fetch'=>N //Fetch from provider, even we have performed same request with-in stipulated time (Y,N) - Yes or No
+                'force_fetch'=>N //Fetch from provider, (Y,N) - Yes or No
                 );
     //Load digital API Library
     $this->load->library('digitalapi');
@@ -233,8 +233,8 @@ Please refer the document for all possible response and inputs.
 <?php
     //Set up data
     $search_array=array(
-                    'request_type'=>'C',// Request Type(C,D) - Count or Date /if nothing passed default will be C
-                    'count'=>5, //Number of records to be fetched. // Needed when request_type is C.
+                    'search_type'=>'C',// Request Type(C,D) - Date wise search or Number of latest records
+                    'records'=>5, //Number of records to be fetched. // Needed when request_type is C.
                     'start_date'=>'YYYY-MM-DD', // From Date // If type = D
                     'end_date'=>'YYYY-MM-DD', // To Date // If type = D
                     );
@@ -246,6 +246,53 @@ Please refer the document for all possible response and inputs.
     $response=$this->digitalapi->myCreditTransactions($search_array); 
 ?
 ```
+
+
+## Reports
+DigitalAPI offers a simple way to keep track of your API usages and conversations. You can access your usage / conversion data through bellow HTTP requests.
+
+**Document URL:** 
+The documentation for **digitalapi reports** is hosted
+at : [Click here to read our full
+documentation for reports.](https://www.digitalapi.com/api/v1/docs#reports "Digital API 
+Library Documentation reports")
+
+Please refer the document for all possible response and inputs.
+```php
+<?php
+    /**
+    * There will be 4 types of report format
+    * 1- Get the API Usage //Docs: https://www.digitalapi.com/api/v1/docs#report-usage
+    * 2- Get the status of SMS(s) sent //Docs: https://www.digitalapi.com/api/v1/docs#report-sms
+    * 3- Get the status of Voice Call(s) //Docs: https://www.digitalapi.com/api/v1/docs#report-call
+    * 4- Get the status of Email(s) //Docs: https://www.digitalapi.com/api/v1/docs#report-email
+    * For multiple status search, Digital API provides a single call environmene
+    * You can query up to 100 message id's at a time
+    */
+    
+    $reportType='usage'; // usage / sms / call / email
+    
+    //Single Message search
+    $messageId='{"message_id":"b624092b8dce4c17a031cffe9855e7c2"}';
+    
+    //or
+    
+    //Multiple Message Search
+    $messageId='{"message_id":["b624092b8dce4c17a031cffe9855e7c2", "38b1ef23703c4254993e90473b398fa3",                 "4f4bae6389bb48c8979aad36c3760f3a"]}';
+    
+    
+    //Load digital API Library
+    $this->load->library('digitalapi');
+    
+    //Make the API call
+    $response=$this->digitalapi->getReport($reportType,$messageId); //Incase of usage search leave $messageId
+    
+?>
+```
+
+
+
+
 
 
 
