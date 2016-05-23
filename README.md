@@ -33,6 +33,8 @@ The documentation for **digitalapi** is hosted
 at : [Click here to read our full
 documentation for sending email.](https://www.digitalapi.com/api/v1/docs#email "Digital API 
 Library Documentation For Sending Email")
+
+Please refer the document for all possible response and inputs.
 ```php
 <?php
     //Set up mail data
@@ -44,7 +46,7 @@ Library Documentation For Sending Email")
                   'to_mail'=>'johndoe@example.com', // Receicver email address
                   'subject'=> 'Firstmail using Digital API', //Mail subject
                   'message'=>'<p>Hello World! My firstmail using DIgital API</p>', //mail body HTML or Plaintext
-                  'attachment'=>1,// 0 if no attachment
+                  'attachment'=>0,// 1 if  attachment / If 1 below fields are mandatory
                   'attachment_path'=>'', //Fully qualified url
                   'attachment_name'=>'', //Add new file name if you want your rename 
                   'attachment_type'=>'', //Mime type of attachment
@@ -74,3 +76,5 @@ Library Documentation For Sending Email")
     endif;      
 ?>
 ```
+
+
