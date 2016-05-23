@@ -60,7 +60,7 @@ Please refer the document for all possible response and inputs.
     /**
     *$response is an associatuve array
     *which contains
-    * $response['post_url']
+    *   $response['post_url']
     *   $response['post_endpoint']
     *   $response['post_data']
     *   $response['api_status'] //API Status Code
@@ -72,7 +72,7 @@ Please refer the document for all possible response and inputs.
     if($status==200):
       echo 'Congrats! You sent an email using DigitalAPI!'
     else:
-      echo $response['api_message'];
+      echo 'You got a error: '.$response['api_message'];
     endif;      
 ?>
 ```
@@ -87,6 +87,39 @@ Library Documentation For Sending SMS")
 Please refer the document for all possible response and inputs.
 ```php
 <?php
+    //Setup SMS Data
+    $dataarray=array(
+                        'country'=>91, // country dialing code 
+                        'number'=>9999999999, //Receiver number
+                        'message'=>'Your OTP for transaction is 8967',
+                        'type'=>'t' // t- Transactional / p- Promotional
+                    );
+     //Load digital API Library
+    $this->load->library('digitalapi');
+    
+    //Make the API call
+    $response=$this->digitalapi->sendSMS($mailarray);
+    
+    /**
+    *$response is an associatuve array
+    *which contains
+    *   $response['post_url']
+    *   $response['post_endpoint']
+    *   $response['post_data']
+    *   $response['api_status'] //API Status Code
+    *   $response['api_message'] //API Message // incase of 400 status you can refer it for error details
+    *   $response['api_response'] For API Return please check documentation URL
+    */
+    //Check status
+    $status=$response['api_status'];
+    if($status==200):
+      echo 'Congrats! You sent an SMS using DigitalAPI!'
+    else:
+       echo 'You got a error: '.$response['api_message'];
+    endif;                      
 ?>
 ```
+
+
+
 
