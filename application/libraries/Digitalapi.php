@@ -97,12 +97,12 @@ class Digitalapi {
     
     
     /**
-     * Send SMS 
-     * This end-point enables you get the API usage history in real time. Returns action count for a "_id " provided [ refer sendEmail success response for "_id" ] 
-     * @param country	Recipient country dialing code	1 for USA , 91 for India etc..	
+    * Send SMS 
+    * This end-point enables you get the API usage history in real time. Returns action count for a "_id " provided [ refer sendEmail success response for "_id" ] 
+    * @param country	Recipient country dialing code	1 for USA , 91 for India etc..	
     * @param number	Recipient mobile number	9999999999	
     * @param message	Message you want to sent ( keep it under 160 character to make a single SMS)	Test SMS via DigitalAPI	
-      * @param type	Message Type(P,T) - Promotional or Transactional	T [ if nothing passed default will be Promotional]
+    * @param type	Message Type(P,T) - Promotional or Transactional	T [ if nothing passed default will be Promotional]
      */
     
     public function sendSMS($smsarray)
@@ -127,26 +127,26 @@ class Digitalapi {
      * @param number	Recipient mobile number	9999999999
      * @param message	Message you want to sent in array Format 	
 
-        array(
-            0 => array(
-                'message' => 'Hello, Welcome to DigitalAPI',
-                'language' => 'en-us',
-                'voice' => 'MAN',
-                'loop' => 1
-                ),
-            1 => array(
-                'message' => 'Your verification code is 2015',
-                'language' => 'en-us',
-                'voice' => 'MAN',
-                'loop' => 2
-                ),
-            2 => array(
-                'message' => 'Thank you for choosing DigitalAPI.',
-                'language' => 'en-us',
-                'voice' => 'MAN',
-                'loop' => 1
-                )
-            )
+     * array(
+     *        0 => array(
+     *            'message' => 'Hello, Welcome to DigitalAPI',
+     *            'language' => 'en-us',
+     *           'voice' => 'MAN',
+     *            'loop' => 1
+     *            ),
+     *        1 => array(
+     *            'message' => 'Your verification code is 2015',
+     *            'language' => 'en-us',
+     *            'voice' => 'MAN',
+     *            'loop' => 2
+     *            ),
+     *        2 => array(
+     *           'message' => 'Thank you for choosing DigitalAPI.',
+     *            'language' => 'en-us',
+     *            'voice' => 'MAN',
+     *            'loop' => 1
+     *           )
+     *        )
 
      * @param  type	Message Type(P,T) - Promotional or Transactional	T [ if nothing passed default will be Promotional]
      */    
@@ -172,7 +172,7 @@ class Digitalapi {
      * @param  ip_address	IP address	{"ip_address":"183.82.223.1"}
      * \n OR
      * {"ip_address":["183.82.223.1","49.204.46","49.204.62.232"]}
-        In array we can pass maximum of 100 values. 
+     *   In array we can pass maximum of 100 values. 
      */
     
     public function getIPInfo($returndata='partial',$ip=null)
