@@ -27,6 +27,22 @@ aplication and you are ready to make API calls to Digital API.
 
 ## Quickstart
 
+#### Respose Format
+For all api calls, there is a unified response format while using the library as follows:
+```css
+    /**
+    *$response is an associatuve array
+    *which contains
+    *   $response['post_url']
+    *   $response['post_endpoint']
+    *   $response['post_data']
+    *   $response['api_status'] //API Status Code
+    *   $response['api_message'] //API MEssage // incase of 400 status you can refer it for error details
+    *   $response['api_response'] For API Return please check documentation URL
+    */
+```
+
+
 ### Send an Email
 **Document URL:** 
 The documentation for **digitalapi** is hosted
@@ -57,17 +73,7 @@ Please refer the document for all possible response and inputs.
     //Make the API call
     $response=$this->digitalapi->sendMail($mailarray);
     
-    /**
-    *$response is an associatuve array
-    *which contains
-    *   $response['post_url']
-    *   $response['post_endpoint']
-    *   $response['post_data']
-    *   $response['api_status'] //API Status Code
-    *   $response['api_message'] //API MEssage // incase of 400 status you can refer it for error details
-    *   $response['api_response'] For API Return please check documentation URL
-    */
-    //Check status
+    //Checking status
     $status=$response['api_status'];
     if($status==200):
       echo 'Congrats! You sent an email using DigitalAPI!'
@@ -117,6 +123,32 @@ Please refer the document for all possible response and inputs.
     else:
        echo 'You got a error: '.$response['api_message'];
     endif;                      
+?>
+```
+
+### Make a Voice Call
+**Document URL:** 
+The documentation for **digitalapi Call** is hosted
+at : [Click here to read our full
+documentation for sending SMS.](https://www.digitalapi.com/api/v1/docs#voicecall "Digital API 
+Library Documentation For Making Voice Call")
+
+Please refer the document for all possible response and inputs.
+```php
+<?php
+    //Setup SMS Data
+    $dataarray=array(
+                        'country'=>91, // country dialing code 
+                        'number'=>9999999999, //Receiver number
+                        'message'=>'Your OTP for transaction is 8967',
+                        'type'=>'t' // t- Transactional / p- Promotional
+                    );
+     //Load digital API Library
+    $this->load->library('digitalapi');
+    
+    //Make the API call
+    $response=$this->digitalapi->sendSMS($mailarray);
+    
 ?>
 ```
 
