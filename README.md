@@ -77,4 +77,16 @@ Please refer the document for all possible response and inputs.
 ?>
 ```
 
+### Send a SMS
+**Document URL:** 
+The documentation for **digitalapi SMS** is hosted
+at : [Click here to read our full
+documentation for sending SMS.](https://www.digitalapi.com/api/v1/docs#sms "Digital API 
+Library Documentation For Sending SMS")
+
+Please refer the document for all possible response and inputs.
+```php
+<?php
+?>
+```
 
