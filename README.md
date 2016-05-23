@@ -266,7 +266,7 @@ Please refer the document for all possible response and inputs.
     * 2- Get the status of SMS(s) sent //Docs: https://www.digitalapi.com/api/v1/docs#report-sms
     * 3- Get the status of Voice Call(s) //Docs: https://www.digitalapi.com/api/v1/docs#report-call
     * 4- Get the status of Email(s) //Docs: https://www.digitalapi.com/api/v1/docs#report-email
-    * For multiple status search, Digital API provides a single call environmene
+    * For multiple status search, Digital API provides a single call environment
     * You can query up to 100 message id's at a time
     */
     
@@ -278,26 +278,52 @@ Please refer the document for all possible response and inputs.
     //or
     
     //Multiple Message Search
-    $messageId='{"message_id":["b624092b8dce4c17a031cffe9855e7c2", "38b1ef23703c4254993e90473b398fa3",                 "4f4bae6389bb48c8979aad36c3760f3a"]}';
+    $messageId='{"message_id":["b624092b8dce4c17a031cffe9855e7c2", "38b1ef23703c4254993e90473b398fa3"]}';
     
     
     //Load digital API Library
     $this->load->library('digitalapi');
     
     //Make the API call
-    $response=$this->digitalapi->getReport($reportType,$messageId); //Incase of usage search leave $messageId
+    //Incase of usage search leave $messageId
+    $response=$this->digitalapi->getReport($reportType,$messageId);
     
 ?>
 ```
 
 
+## Webhooks
+Webhook is a HTTP callback, where data is sent through POST method whenever an event occurred. Webhooks can be configured for all the events of the every END-POINT. All webhook calls to your server includes your API key in the data posted, so that you can make sure that the data posted belongs to you. Your callback urls mustn't be shared with anyone apart from DigitalAPI.
 
+[Register your webhook URLs here](https://www.digitalapi.com/api-v1/webhooks/app/ "Register your 
+webhook URLs here")
+Obtain the login pass phrase from DigitalAPI
 
+### Receiving webhook calls
+Once you setup your webhook url, you will receive the call back as a post to the url
+**Catching the post data**
+```php
+<?php
+    //Webhook Configured page
+    //example to fetch data
+    //Please check https://www.digitalapi.com/api/v1/docs#webhooks for more details
+    
+    if($this->input->post()): 
+        $hookdata=json_decode($this->input->post('data'),true);
+        $action_performed=$data['current_action']['action_performed'];       
+        $msg_id=$data['msg_id'];
+    endif;
+?>
+```
 
+## Prerequisites
 
+* PHP >= 5.2.3
+* CodeIgniter >= 3.0.1
+* The PHP cURL extension
 
+## Getting help
 
+If you need help installing or using the library, please contact DigitalAPI Support at support@digitalapi.com first. 
 
-
-
-
+If you've instead found a bug in the library or would like new features added, go ahead and open issues or pull requests against this repo!
