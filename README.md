@@ -28,7 +28,11 @@ aplication any you are ready to make API calls to Digital API.
 ## Quickstart
 
 ### Send an Email
-Document URL: https://www.digitalapi.com/api/v1/docs#email
+Document URL: 
+The documentation for **digitalapi** is hosted
+at : [Click here to read our full
+documentation.](https://www.digitalapi.com/api/v1/docs#email "Digital API 
+Library Documentation For Sending Email")
 ```php
 <?php
     //Set up mail data
