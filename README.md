@@ -67,8 +67,6 @@ Document URL: https://www.digitalapi.com/api/v1/docs#email
       echo 'Congrats! You sent an email using DigitalAPI!'
     else:
       echo $response['api_message'];
-    endif;
-    
-                  
+    endif;      
 ?>
 ```
