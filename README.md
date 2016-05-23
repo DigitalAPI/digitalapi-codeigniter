@@ -272,12 +272,13 @@ Please refer the document for all possible response and inputs.
     $reportType='sms'; // sms / call / email
     
     //Single Message search
-    $messageId='{"message_id":"b624092b8dce4c17a031cffe9855e7c2"}';
+    $messageId=array('message_id'=>'7145e822-5a64-44e6-9f6d-79a6f14f98c9');
     
     //or
     
     //Multiple Message Search
-    $messageId='{"message_id":["b624092b8dce4c17a031cffe9855e7c2", "38b1ef23703c4254993e90473b398fa3"]}';
+    $messageId=array('message_id'=>array('7145e822-5a64-44e6-9f6d-79a6f14f98c9','b624092b8dce4c17a031cffe9855e7c2','38b1ef23703c4254993e90473b398fa3'));
+    
     
     
     //Load digital API Library
