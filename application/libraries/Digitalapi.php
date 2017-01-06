@@ -420,7 +420,7 @@ class Digitalapi {
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         
         //Added to verify Host. If you don't have SSL make the value to 0
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 1);  //0 if you don't have ssl
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);  //0 if you don't have ssl
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 1); //0 if you don't have ssl
         
         $result = curl_exec($curl);
